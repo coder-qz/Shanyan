@@ -1,0 +1,18 @@
+apply plugin: 'maven-publish'
+
+task androidSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId = 'com.iflytek' 
+            artifactId = 'shanyan_sdk_v2.3.6.5' 
+            version = '2.3.6.5'
+
+            artifact file('shanyan_sdk_v2.3.6.5.aar') 
+        }
+    }
+}
